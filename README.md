@@ -11,6 +11,10 @@ source emacs.aliases.bash
 ```
 
 # Examples
+You can eliminate emacs typo like this video:
+
+![emcas](https://github.com/708yamaguchi/EMCAS/blob/media/emcas.gif)
+
 Here are some examples of EMCAS completion.
 ```bash
 $ ./test.sh
