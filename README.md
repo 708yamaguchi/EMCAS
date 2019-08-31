@@ -29,3 +29,6 @@ emcs hoge fuga        -> emacs hoge fuga
 emsc hoge s-nw fuga   -> emacs hoge s-nw fuga
 ```
 Of course, you can use the default `emacs` command.
+
+# Links
+Qiita: https://qiita.com/708yamaguchi/items/f62d2b65e6a0ef70f854
