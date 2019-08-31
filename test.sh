@@ -6,50 +6,54 @@ source emacs.aliases.bash
 # EMCAS test sets
 TESTS=(
     # test 1
-    "emcas-conversion s-nw hoge"
-    "command emacs -nw hoge"
+    "emcas 0nw hoge"
+    "emacs -nw hoge"
     # test 2
-    "emcas-conversion s-nw foo -nw"
-    "command emacs -nw foo -nw"
+    "eamcs -wn foo -nw"
+    "emacs -nw foo -nw"
     # test 3
-    "emcas-conversion s-nw -f shell"
-    "command emacs -nw -f shell"
+    "ema -csw -f shell"
+    "emacs -nw -f shell"
     # test 4
-    "emcas-conversion"
-    "command emacs"
+    "ems"
+    "emacs"
     # test 5
-    "emcas-conversion -nw fuga hoge"
-    "command emacs -nw fuga hoge"
+    "emac s-nw fuga hoge"
+    "emacs -nw fuga hoge"
     # test 6
-    "emcas-conversion fuga -nw hoge"
-    "command emacs fuga -nw hoge"
+    "emacs fuga -nw hoge"
+    "emacs fuga -nw hoge"
     # test 7
-    "emcas-conversion -f shell -nw"
-    "command emacs -f shell -nw"
+    "emavs -f shell -nw"
+    "emacs -f shell -nw"
     # test 8
-    "emcas-conversion hoge fuga"
-    "command emacs hoge fuga"
+    "emcs hoge fuga"
+    "emacs hoge fuga"
     # test 9
-    "emcas-conversion hoge s-nw fuga"
-    "command emacs hoge s-nw fuga"
+    "emsc hoge s-nw fuga"
+    "emacs hoge s-nw fuga"
 )
 
 # Run tests
 RET=0
 STR=""
+EMCAS_ECHO=0
+shopt -s expand_aliases
 for ((i = 0; i < ${#TESTS[@]}; i++))
 do
     EMCAS_CMD=${TESTS[$i]}
     EXPECTED_CMD=${TESTS[$((i+1))]}
-    STR+=$(echo "$EMCAS_CMD ,-> $($EMCAS_CMD)\n")
-    if [ ! "$($EMCAS_CMD)" = "$EXPECTED_CMD" ]; then
+    STR+=$(echo "$EMCAS_CMD ,-> $(eval $EMCAS_CMD)\n")
+    if [ ! "$(eval $EMCAS_CMD)" = "$EXPECTED_CMD" ]; then
         RET=1
     fi
     let i++
 done
+unset EMCAS_ECHO
+shopt -u expand_aliases
 
 # Print emcas test results
-echo -e "$STR" | sed s/"emcas-conversion"/"emcas"/ | column -t -s,
+echo -e "$STR" | column -t -s,
 
 # Return 0 only if all tests return 0
 exit $RET

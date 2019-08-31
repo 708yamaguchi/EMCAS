@@ -57,17 +57,20 @@ NW_OPTIONS=(
     -w
     -wn
 )
-function emcas-conversion(){
-    if [ $# -eq 0 ]; then
-        echo "command emacs"
-    elif echo "${NW_OPTIONS[@]}" | grep '\'$1 > /dev/null; then
-        echo "command emacs -nw ${@:2}"
-    else
-        echo "command emacs ${@:1}"
-    fi
-}
 
 # Main function
 function emcas(){
-    eval $(emcas-conversion $@)
+    if [ $# -eq 0 ]; then
+        COMMAND="emacs"
+    elif echo "${NW_OPTIONS[@]}" | grep '\'$1 > /dev/null; then
+        COMMAND="emacs -nw ${@:2}"
+    else
+        COMMAND="emacs ${@:1}"
+    fi
+    # if EMCAS_ECHO is set, only print the command
+    if [ -v EMCAS_ECHO ]; then
+        echo $COMMAND
+    else
+        command $COMMAND
+    fi
 }

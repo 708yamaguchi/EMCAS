@@ -13,14 +13,15 @@ source emacs.aliases.bash
 # Examples
 Here are some examples of EMCAS completion.
 ```bash
-emcas 0nw hoge       # ->  emacs -nw eamcs
-eamcs -wn foo -nw    # ->  emacs -nw foo -nw
-ema -csw -f shell    # ->  emacs -nw -f shell
-ems                  # ->  emacs
-emac s-nw fuga hoge  # ->  emacs -nw fuga hoge
-emacs fuga -nw hoge  # ->  emacs fuga -nw hoge
-emavs -f shell -nw   # ->  emacs -f shell -nw
-emcs hoge fuga       # ->  emacs hoge fuga
-emsc hoge s-nw fuga  # ->  emacs hoge s-nw fuga
+$ ./test.sh
+emcas 0nw hoge        -> emacs -nw hoge
+eamcs -wn foo -nw     -> emacs -nw foo -nw
+ema -csw -f shell     -> emacs -nw -f shell
+ems                   -> emacs
+emac s-nw fuga hoge   -> emacs -nw fuga hoge
+emacs fuga -nw hoge   -> emacs fuga -nw hoge
+emavs -f shell -nw    -> emacs -f shell -nw
+emcs hoge fuga        -> emacs hoge fuga
+emsc hoge s-nw fuga   -> emacs hoge s-nw fuga
 ```
 Of course, you can use the default `emacs` command.
