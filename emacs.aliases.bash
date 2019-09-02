@@ -2,6 +2,7 @@
 
 # Aliases for emcas. DO NOT alias emcas="emacs"
 EMCAS_ALIASES=(
+    eacs
     eamcs
     eamsc
     ema
