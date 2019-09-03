@@ -1,0 +1,7 @@
+language: minimal
+
+script:
+  # check some cases of EMCAS implementation
+  - ./test.sh
+
+sudo: false
