@@ -1,4 +1,7 @@
-# Overview
+EMCAS
+=====
+[![Build Status](https://travis-ci.com/708yamaguchi/EMCAS.svg?branch=master)](https://travis-ci.com/708yamaguchi/EMCAS/)
+
 You can get free from annoying typo of `Emacs`.
 In this repository, there are many aliases of `emacs` command and `-nw` option.
 
